@@ -1,0 +1,21 @@
+# dsh-memory-store 的挂载声明。
+# dataDir 省略时用 <DSH_HOME>/memory-store；要放到别处就在 profile 的 cordis.patch.yml 覆盖。
+- insert:
+    - id: dsh-memory-store
+      name: dsh-memory-store
+      config:
+        dbFile: memory.db
+        readOnly: false
+        capture: true
+        recallLimit: 8
+        minScore: 0.12
+        embedding:
+          enabled: true
+          endpoint: http://localhost:11434
+          model: bge-m3
+          timeoutMs: 8000
+        injection:
+          enabled: true
+          maxChars: 1200
+          cooldownMs: 1800000
+          minQueryChars: 6

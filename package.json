@@ -1,0 +1,40 @@
+{
+  "name": "dsh-memory-store",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "本地 SQLite 记忆库：四路召回、软删、会话采集与可选注入，提供 companion_memory_* 工具",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "schema.sql",
+    "tools/init-db.mjs",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "compatibility": {
+      "dshReleases": {
+        "0.2.2-rc.1": "compatible"
+      }
+    }
+  },
+  "license": "MIT",
+  "author": {
+    "name": "温凌微 (Vera)"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Wuming1101/dsh-memory-store.git"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  }
+}
