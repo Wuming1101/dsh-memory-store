@@ -25,7 +25,9 @@ import { createRequire } from 'node:module'
 const require = createRequire(import.meta.url)
 
 export const name = 'dsh-memory-store'
-export const inject = []
+// 必须等 tools 服务就绪再 apply，否则 ctx.get('tools') 是空的，六个 companion_memory_* 工具都注册不上，
+// 注入钩子也会被提前 return 掉。
+export const inject = ['tools']
 
 const DEFAULT_DATA_DIR =
   process.env.DSH_MEMORY_STORE_DIR
